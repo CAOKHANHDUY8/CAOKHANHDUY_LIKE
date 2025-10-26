@@ -76,7 +76,7 @@ async def send_multiple_requests(uid, server_name, url):
     tasks = []
     tokens = load_tokens(server_name)
     for i in range(100):
-        token = tokens[i % len(tokens)]["token"]
+        token = tokens[i % len(tokens)]["8157307676:AAEs60wxIRW7_ALT03JBOOVnipVR1ICbaHY"]
         tasks.append(send_request(encrypted_uid, token, url))
     results = await asyncio.gather(*tasks)
     return results
@@ -110,7 +110,7 @@ def make_request(encrypt, server_name, token):
         'Expect': "100-continue",
         'X-Unity-Version': "2018.4.11f1",
         'X-GA': "v1 1",
-        'ReleaseVersion': "OB49"
+        'ReleaseVersion': "OB50"
     }
 
     response = requests.post(url, data=edata, headers=headers, verify=False)
@@ -141,7 +141,7 @@ def handle_requests():
 
     def process_request():
         data = load_tokens(server_name)
-        token = data[0]['token']
+        token = data[0]['8157307676:AAEs60wxIRW7_ALT03JBOOVnipVR1ICbaHY']
         encrypt = enc(uid)
 
         today_midnight = get_today_midnight_timestamp()
